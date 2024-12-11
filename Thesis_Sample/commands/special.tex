@@ -1,0 +1,70 @@
+% دستورات خاصی که میتوانند کمک‌کننده باشند
+
+% دستور علامت درصد
+\newcommand{\perc}{ \hspace*{-3mm} { \percentfont \textbf{\%} } \hspace*{-2.5mm} }
+
+% دستور چاپ علامت / برای موقعی که یک طرف عدد نباشد و علامت / چاپ نشود!
+\newcommand{\dpt}{{}_\textbf{\texttt{/}}}
+
+%\renewcommand{\arraystretch}{1.1}
+% =========+=========+=========+=========+=========+=========+========= Other
+\newcommand{\mycomment}[1]{}
+\newcommand{\warning}[1]{\textcolor{red}{\textbf{#1}}}
+
+% label
+\numberwithin{equation}{chapter}
+%\numberwithin{equation}{section}
+
+% section
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+% shape
+%\DeclareCaptionLabelSeparator{none}{ }
+%\captionsetup{labelsep=none}
+
+% =========+=========+=========+=========+=========+=========+========= Symbols
+
+\newcommand{\allrights}{\tiny{\ \circledR}}
+%\scriptsize{\textcircled{\tiny{R}}}
+
+% =========+=========+=========+=========+=========+=========+========= textup
+\newcommand{\efn}[1]{\LTRfootnote{\lr{\textup{#1}}}}
+\newcommand{\eng}[1]{\lr{\textup{#1}}}
+\newcommand{\per}[1]{\text{\rl{#1}}}
+\newcommand{\codd}[1]{\lr{\texttt{\textup{#1}}}}
+\newcommand{\cod}[1]{\lr{\texttt{\textup{\detokenize{#1}}}}}
+\newcommand{\codb}[1]{\textbf{\lr{\texttt{\textup{\detokenize{#1}}}}}}
+
+% =========+=========+=========+=========+=========+=========+========= cod
+\newenvironment{code}{\latin \Verbatim[tabsize=4, baselinestretch=1, fontshape=normal]}{\endVerbatim \endlatin} 
+
+\newenvironment{file}[1]{$\ $ \newline \\ \minipage{16cm} \latin \fbox{\cod{#1}} \vspace{-2mm} \Verbatim[tabsize=4, baselinestretch=1, fontshape=normal, frame=single]}{\endVerbatim \endlatin \endminipage \\ $\ $ \\} 
+
+\newenvironment{terminal}{$\ $ \newline \\ \minipage{16cm} \latin \centering{\fbox{\cod{Terminal}}} \vspace{-3mm} \Verbatim[tabsize=4, baselinestretch=1, fontshape=normal, frame=single]}{\endVerbatim \endlatin \endminipage \\ $\ $ \\} 
+
+\newcommand{\myspace}{\vspace{-1cm}} % reduce vspace between two minipage 
+\newcommand{\halfspace}{\vspace{-1.5cm}} % reduce vspace between two minipage 
+\newcommand{\somespace}{\vspace{-2cm}} % reduce vspace some where 
+
+\AfterEndEnvironment{code}{\noindent\ignorespaces}
+\AfterEndEnvironment{file}{\noindent\ignorespaces}
+\AfterEndEnvironment{terminal}{\noindent\ignorespaces}
+\AfterEndEnvironment{con}{\noindent\ignorespaces}
+
+% =========+=========+=========+=========+=========+=========+========= space after
+\setlength{\parindent}{0pt}
+\mycomment{
+\AfterEndEnvironment{theorem}{\noindent\ignorespaces}
+\AfterEndEnvironment{corollary}{\noindent\ignorespaces}
+\AfterEndEnvironment{definition}{\noindent\ignorespaces}
+\AfterEndEnvironment{example}{\noindent\ignorespaces}
+\AfterEndEnvironment{lemma}{\noindent\ignorespaces}
+\AfterEndEnvironment{note}{\noindent\ignorespaces}
+\AfterEndEnvironment{proposition}{\noindent\ignorespaces}
+\AfterEndEnvironment{remark}{\noindent\ignorespaces}
+\AfterEndEnvironment{proof}{\noindent\ignorespaces}
+\AfterEndEnvironment{table}{\noindent\ignorespaces}
+\AfterEndEnvironment{latin}{\noindent\ignorespaces}
+}
+

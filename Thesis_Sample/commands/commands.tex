@@ -1,0 +1,594 @@
+% دستورات مدنظر خود را در این بخش وارد کنید
+%%%  برخی فرمول‌هایی که باید به صورت صاف تایپ شوند و در این متن مورد نیاز است. سایر فرمولهای مورد نیاز را به صورت مشابه تعریف کنید
+\newcommand{\Aut}{{\rm  Aut}}
+\newcommand{\Cay}{{\rm  Cay}}
+\newcommand{\Spec}{{\rm  Spec}}
+\newcommand{\Deg}{{\rm deg}}
+\newcommand{\Ham}{{\rm Ham}}
+\newcommand{\diam}{{\rm diam}}
+\newcommand{\Det}{{\rm det}}
+\newcommand{\Char}{{\rm char}}
+\newcommand{\sym}{{\rm  sym}}
+\newcommand{\dist}{{\rm  dist}}
+\newcommand{\Ker}{{\rm  Ker}}
+\newcommand{\val}{{\rm  val}}
+\newcommand{\ord}{{\rm  ord}}
+\newcommand{\id}{{\rm  id}}
+
+% =========+=========+=========+=========+=========+=========+========= Math
+\def \ds{\displaystyle}
+\def \dfrac{\ds\frac}
+\def \Bbb{\mathbb}
+\def \Real{\Bbb{R}}
+\def \Natural{\Bbb{N}}
+\def \Zahlen{\Bbb{Z}}
+\def \Odd{\Bbb{O}}
+\def \Even{\Bbb{E}}
+\def \Field{\Bbb{F}}
+\def \Poly{\Bbb{P}}
+\def \uvs{0cm}
+\def \lvs{0cm}
+
+\newcommand{\NaturalZ}{\mathbb{N} \cup \lbrace 0 \rbrace}
+\newcommand{\ZahlenP}{\mathbb{Z}^{+}}
+\newcommand{\ZahlenPZ}{\mathbb{Z}^{+} \cup \lbrace 0 \rbrace }
+\newcommand{\RealP}{\mathbb{R}^{+}}
+\newcommand{\RealPZ}{\mathbb{R}^{+} \cup \lbrace 0 \rbrace}
+\newcommand{\RealM}{\mathbb{R}^{M}}
+\newcommand{\RealMN}{\mathbb{R}^{MN}}
+\newcommand{\bOmega}{\partial\Omega}
+\newcommand{\Realt}{\mathbb{R}^{2}}
+\newcommand{\RealaKh}{\mathbb{R}^{|\mathcal{K}_{h}|}}
+\newcommand{\boldx}{\textbf{x}}
+
+% =========+=========+=========+=========+=========+=========+========= MGRIT
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\ON}{\mathcal{O}(N)}
+\newcommand{\W}{\mathcal{W}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\Ys}{\mathcal{Y}^{T}}
+\newcommand{\NC}{N_{C}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Qk}{\mathcal{Q}^{k}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\Jo}{\mathcal{J}_{\omega}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Ad}{\mathcal{A}_{\Delta}}
+\newcommand{\AFF}{\mathcal{A}_{FF}}
+\newcommand{\ACF}{\mathcal{A}_{CF}}
+\newcommand{\AFC}{\mathcal{A}_{FC}}
+\newcommand{\ACC}{\mathcal{A}_{CC}}
+\newcommand{\lamo}{\lambda_{\omega}}
+\newcommand{\lamod}{\lambda_{\omega}^{\dagger}}
+\newcommand{\lamodm}{(\lambda_{\omega}^{\dagger})^{m}}
+\newcommand{\muodd}{\mu_{\omega}^{\ddagger}}
+\newcommand{\muo}{\mu_{\omega}}
+\newcommand{\muos}{\mu_{\omega}^{*}}
+\newcommand{\muosNCo}{(\mu_{\omega}^{*})^{N_{C}-1}}
+\newcommand{\PsiD}{\Psi^{\Delta}}
+\newcommand{\PsiDj}{\Psi^{\Delta}_{j}}
+\newcommand{\Psin}{\Psi_{n}}
+\newcommand{\PsiNn}{\Psi_{N}}
+\newcommand{\tildt}{\tilde{t}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\tildeE}{\tilde{\E}}
+\newcommand{\tildeEC}{\tilde{\E}_{C}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Xs}{\mathcal{X}^{T}}
+\newcommand{\Xso}{\mathcal{X}^{*}_{\omega}}
+
+% =========+=========+=========+=========+=========+=========+========= FEM
+\newcommand{\PhiL}{\Phi_{l}}
+\newcommand{\PhiJ}{\Phi_{j}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Lz}{\mathcal{L}_{0}}
+\newcommand{\Lk}{\mathcal{L}_{k}}
+\newcommand{\Ln}{\mathcal{L}_{n}}
+\newcommand{\tildIn}{\tilde{I}_{n}}
+\newcommand{\uht}{u_{h \tau}}
+\newcommand{\uhk}{u^{k}_{h}}
+\newcommand{\ulk}{u^{k}_{l}}
+\newcommand{\uln}{u^{n}_{l}}
+\newcommand{\fln}{f^{n}_{l}}
+\newcommand{\fjn}{f^{n}_{j}}
+\newcommand{\ujn}{u^{n}_{j}}
+\newcommand{\tn}{t_{n}}
+\newcommand{\vht}{v_{h \tau}}
+\newcommand{\vh}{v_{h}}
+\newcommand{\vt}{v_{\tau}}
+
+% =========+=========+=========+=========+=========+=========+========= Matrix
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Gd}{\mathcal{G}_{\Delta}}
+\newcommand{\Gz}{\mathcal{G}_{0}}
+\newcommand{\Gn}{\mathcal{G}_{n}}
+\newcommand{\GN}{\mathcal{G}_{N}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\Ud}{\mathcal{U}_{\Delta}}
+\newcommand{\Uz}{\mathcal{U}_{0}}
+\newcommand{\Un}{\mathcal{U}_{n}}
+\newcommand{\UN}{\mathcal{U}_{N}}
+\newcommand{\Fn}{\mathcal{F}_{n}}
+\newcommand{\Ppi}{\mathcal{P}_{\pi}}
+\newcommand{\PpiT}{(\mathcal{P}_{\pi})^{T}}
+\newcommand{\Mo}{\mathcal{M}_{1}}
+\newcommand{\Mt}{\mathcal{M}_{2}}
+\newcommand{\MtT}{\mathcal{M}_{2}^{T}}
+\newcommand{\Ih}{\mathcal{I}_{h}}
+\newcommand{\Mh}{\mathcal{M}_{h}}
+\newcommand{\iMh}{\mathcal{M}_{h}^{-1}}
+\newcommand{\Alr}{\mathcal{A}^{\varrho}_{l}}
+\newcommand{\Ab}{\mathcal{A}^{\beta}}
+\newcommand{\Axb}{\mathcal{A}^{\beta}_{x}}
+\newcommand{\Aob}{\mathcal{A}^{\beta}_{1}}
+\newcommand{\Atb}{\mathcal{A}^{\beta}_{2}}
+\newcommand{\AtbT}{(\mathcal{A}^{\beta}_{2})^{T}}
+\newcommand{\Ag}{\mathcal{A}^{\gamma}}
+\newcommand{\Ayg}{\mathcal{A}^{\gamma}_{y}}
+\newcommand{\Aog}{\mathcal{A}^{\gamma}_{1}}
+\newcommand{\Atg}{\mathcal{A}^{\gamma}_{2}}
+\newcommand{\AtgT}{(\mathcal{A}^{\gamma}_{2})^{T}}
+
+% =========+=========+=========+=========+=========+=========+========= Concstant
+\newcommand{\Th}{\mathcal{T}_{h}}
+\newcommand{\Kh}{\mathcal{K}_{h}}
+\newcommand{\aKh}{| \mathcal{K}_{h} |}
+\newcommand{\eh}{e_{h}}
+\newcommand{\hx}{h_{x}}
+\newcommand{\hy}{h_{y}}
+\newcommand{\Kx}{K_{x}}
+\newcommand{\Ky}{K_{y}}
+\newcommand{\Mb}{M_{\beta}}
+\newcommand{\Mg}{M_{\gamma}}
+\newcommand{\Mr}{M_{\varrho}}
+
+% =========+=========+=========+=========+=========+=========+========= Space
+\newcommand{\one}{\mathds{1}}
+\newcommand{\onen}{\mathds{1}_{n}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\Zs}{\mathcal{Z}^{*}}
+\newcommand{\Zn}{\mathcal{Z}_{n}}
+\newcommand{\Zsn}{\mathcal{Z}_{n}^{*}}
+\newcommand{\Vh}{\mathcal{V}_{h}}
+\newcommand{\Vt}{\mathcal{V}_{\tau}}
+\newcommand{\Vst}{\mathcal{V}_{\tau}^{*}}
+\newcommand{\Lo}{\mathrm{L}^{1}(\Omega)}
+\newcommand{\Lt}{\mathrm{L}^{2}(\Omega)}
+\newcommand{\LtRt}{\mathrm{L}^{2}(\Real^{2})}
+\newcommand{\Lp}{\mathrm{L}^{p}(\Omega)}
+\newcommand{\Lploc}{\mathrm{L}^{p}_{loc}(\Omega)}
+\newcommand{\Loloc}{\mathrm{L}^{1}_{loc}(\Omega)}
+\newcommand{\LtTt}{\mathrm{L}^{2}(0, T; \Lt)}
+\newcommand{\LtT}{\mathrm{L}^{2}(\Omega , (0, T])}
+\newcommand{\Ho}{\mathrm{H}^{1}(\Omega)}
+\newcommand{\Hk}{\mathrm{H}^{k}(\Omega)}
+\newcommand{\HZk}{\mathrm{H}_{0}^{k}(\Omega)}
+\newcommand{\HZ}{\mathrm{H}_{0}(\Omega)}
+\newcommand{\Hmu}{\mathrm{H}^{\mu}(\Omega)}
+\newcommand{\HZmu}{\mathrm{H}_{0}^{\mu}(\Omega)}
+\newcommand{\HZtmu}{\mathrm{H}_{0}^{2 \mu}(\Omega)}
+\newcommand{\HoTmu}{\mathrm{H}^{1}(0,T; \HZmu)}
+\newcommand{\HoTtmu}{\mathrm{H}^{1}(0,T; \HZtmu)}
+\newcommand{\LtTmu}{\mathrm{L}^{2}(0,T; \HZmu)}
+\newcommand{\LtTtmu}{\mathrm{L}^{2}(0,T; \HZtmu)}
+\newcommand{\JSmu}{\mathrm{J}_{S}^{\mu}(\Omega)}
+\newcommand{\JLmu}{\mathrm{J}_{L}^{\mu}(\Omega)}
+\newcommand{\JRmu}{\mathrm{J}_{R}^{\mu}(\Omega)}
+\newcommand{\JSZmu}{\mathrm{J}_{S,0}^{\mu}(\Omega)}
+\newcommand{\JLZmu}{\mathrm{J}_{L,0}^{\mu}(\Omega)}
+\newcommand{\JRZmu}{\mathrm{J}_{R,0}^{\mu}(\Omega)}
+\newcommand{\Co}{\mathrm{C}(\Omega)}
+\newcommand{\Cn}{\mathrm{C}^{n}(\Omega)}
+\newcommand{\CZ}{\mathrm{C}_{0}(\Omega)}
+\newcommand{\Cclos}{\mathrm{C}(\overline{\Omega})}
+\newcommand{\CZclos}{\mathrm{C}_{0}(\overline{\Omega})}
+\newcommand{\Cm}{\mathrm{C}^{m}(\Omega)}
+\newcommand{\CZm}{\mathrm{C}_{0}^{m}(\Omega)}
+\newcommand{\Cinf}{\mathrm{C}^{\infty}(\Omega)}
+\newcommand{\CZinf}{\mathrm{C}_{0}^{\infty}(\Omega)}
+\newcommand{\Pk}{\mathbb{P}_{k}(\Omega)}
+
+% =========+=========+=========+=========+=========+=========+========= Operator
+\newcommand \subscr[1]
+{{
+_{_{#1}}
+}}
+
+\newcommand \valued[2]
+{{
+#1 \big{|}_{#2}
+}}
+
+\newcommand \seq[4]
+{{
+\lbrace #1_{#2} \rbrace^{#4}_{_{#2 = #3}}
+}}
+
+\newcommand \set[1]
+{{
+\lbrace #1 \rbrace
+}}
+
+\newcommand \diag[1]
+{{
+\textbf{diag}( #1 )
+}}
+
+\newcommand \bigA[1]
+{{
+\Big{\lbrace} #1 \Big{\rbrace}
+}}
+
+\newcommand \bigP[1]
+{{
+\Big{(} #1 \Big{)}
+}}
+
+\newcommand \bigB[1]
+{{
+\Big{[} #1 \Big{]}
+}}
+
+\newcommand \BmPsi[1]
+{{
+\mathcal{B}^{m}_{\Psi , #1}
+}}
+
+\newcommand \Polyk[2]
+{{
+\mathbb{P}_{#1}(#2)
+}}
+
+\newcommand \Bfunc[3]
+{{
+B_{\Omega}^{#1} (#2, #3)
+}}
+
+\newcommand \abs[1]
+{{
+\vert #1 \vert
+}}
+
+\newcommand \abst[1]
+{{
+\vert #1 \vert^{2}
+}}
+
+\newcommand \absS[2]
+{{
+\vert #2 \vert _{_{#1}}
+}}
+
+\newcommand \absSt[2]
+{{
+\vert #2 \vert ^{2}_{_{#1}}
+}}
+
+\newcommand \norm[2]
+{{
+\Vert #1 \Vert
+}}
+
+\newcommand \normS[2]
+{{
+\Vert #2 \Vert _{_{#1}}
+}}
+
+\newcommand \normSt[2]
+{{
+\Vert #2 \Vert ^{2}_{_{#1}}
+}}
+
+\newcommand \normt[1]
+{{
+\Vert #1 \Vert _{_{2}}
+}}
+
+\newcommand \normtt[1]
+{{
+\Vert #1 \Vert ^{2}_{_{2}}
+}}
+
+\newcommand \inner[2]
+{{
+\langle #1, #2 \rangle
+}}
+
+\newcommand \innerS[3]
+{{
+\langle #2, #3 \rangle _{_{#1}}
+}}
+
+\newcommand \innerLt[2]
+{{
+\langle #1, #2 \rangle % _{\Lt}
+}}
+
+\newcommand \normLt[1]
+{{
+\Vert #1 \Vert %_{\Lt}
+}}
+
+\newcommand \normLtt[1]
+{{
+\Vert #1 \Vert ^{2}% _{\Lt}
+}}
+
+\newcommand \normJL[1]
+{{
+\Vert #1 \Vert _{_{\JLmu}}
+}}
+
+\newcommand \normJLt[1]
+{{
+\Vert #1 \Vert^{2} _{_{\JLmu}}
+}}
+
+\newcommand \normJR[1]
+{{
+\Vert #1 \Vert _{_{\JRmu}}
+}}
+
+\newcommand \normJRt[1]
+{{
+\Vert #1 \Vert^{2} _{_{\JRmu}}
+}}
+
+\newcommand \normH[1]
+{{
+\Vert #1 \Vert _{_{\Hmu}}
+}}
+
+\newcommand \normHt[1]
+{{
+\Vert #1 \Vert^{2} _{_{\Hmu}}
+}}
+
+\newcommand \normHot[1]
+{{
+\Vert #1 \Vert^{2} _{_{\Ho}}
+}}
+
+\newcommand \normHkt[1]
+{{
+\Vert #1 \Vert^{2} _{_{\Hk}}
+}}
+
+\newcommand \intd[1]
+{{
+\mathrm{d} #1
+}}
+
+\newcommand \intT[1]
+{{
+\int_{0}^{t} #1 \intd{\varrho}
+}}
+
+\newcommand \intO[1]
+{{
+\int_{\Omega} #1 \intd{A}
+}}
+
+\newcommand \intS[2]
+{{
+\int_{S_{#2}} #1 \intd{A}
+}}
+
+\newcommand \intL[1]
+{{
+\int_{\partial \Omega} #1 \intd{r}
+}}
+
+\newcommand \intTn[1]
+{{
+\int_{t_{n-1}}^{t_{n}} #1 \intd{t}
+}}
+
+% =========+=========+=========+=========+=========+=========+========= integral
+
+\newcommand \difd[3]
+{{
+\dfrac{d^{#2}}{d #1^{#2}} #3
+}}
+
+\newcommand \intfrac[4]
+{{
+_{#1}\mathrm{I}_{#2}^{#3} #4
+}}
+
+% =========+=========+=========+=========+=========+=========+========= main diff
+\newcommand \dif[2]
+{{
+\dfrac{\partial #1}{\partial #2}
+}}
+\newcommand \dift[1]
+{{
+\dfrac{\partial #1}{\partial t}
+}}
+\newcommand \diff[2]
+{{
+\dfrac{\partial^{2} #1}{\partial #2^{2}}
+}}
+\newcommand \diffx[1]
+{{
+\dfrac{\partial^{2} #1}{\partial |x|^{2}}
+}}
+\newcommand \diffy[1]
+{{
+\frac{\partial^{2} #1}{\partial |y|^{2}}
+}}
+\newcommand \diffrac[4]
+{{
+_{#1}\mathrm{D}_{#2}^{#3} #4
+}}
+
+% =========+=========+=========+=========+=========+=========+========= frac dif def
+\newcommand \CdifXmuL[1]
+{{
+^{C}_{a}\mathrm{D}_{x}^{\mu} #1
+}}
+
+\newcommand \CdifXmuR[1]
+{{
+^{C}_{x}\mathrm{D}_{b}^{\mu} #1
+}}
+
+\newcommand \RLdifXmuL[1]
+{{
+^{\mathrm{RL}}_{\ \ a}\mathrm{D}_{x}^{\mu} #1
+}}
+
+\newcommand \RLdifXmuR[1]
+{{
+^{\mathrm{RL}}_{\ \ x}\mathrm{D}_{b}^{\mu} #1
+}}
+
+\newcommand \difXmu[1]
+{{
+\dfrac{\partial^{\mu} #1}{\partial |x|^{\mu}}
+}}
+
+\newcommand \difXmuL[1]
+{{
+_{a}\mathrm{D}_{x}^{\mu} #1
+}}
+
+\newcommand \difXmuR[1]
+{{
+_{x}\mathrm{D}_{b}^{\mu} #1
+}}
+
+\newcommand \difYmuL[1]
+{{
+_{c}\mathrm{D}_{y}^{\mu} #1
+}}
+
+\newcommand \difYmuR[1]
+{{
+_{y}\mathrm{D}_{d}^{\mu} #1
+}}
+
+\newcommand \diffXmu[1]
+{{
+\dfrac{\partial^{2 \mu} #1}{\partial |x|^{\mu}}
+}}
+
+\newcommand \diffXmuL[1]
+{{
+_{a}\mathrm{D}_{x}^{2 \mu} #1
+}}
+
+\newcommand \diffXmuR[1]
+{{
+_{x}\mathrm{D}_{b}^{2 \mu} #1
+}}
+
+\newcommand \diffYmuL[1]
+{{
+_{c}\mathrm{D}_{y}^{2 \mu} #1
+}}
+
+\newcommand \diffYmuR[1]
+{{
+_{y}\mathrm{D}_{d}^{2 \mu} #1
+}}
+
+% =========+=========+=========+=========+=========+=========+========= frac diff of x
+\newcommand \difbeta[1]
+{{
+\dfrac{\partial^{\beta} #1}{\partial |x|^{\beta}}
+}}
+
+\newcommand \difbetaL[1]
+{{
+_{a}\mathrm{D}_{x}^{\beta} #1
+}}
+
+\newcommand \difbetaR[1]
+{{
+_{x}\mathrm{D}_{b}^{\beta} #1
+}}
+
+\newcommand \diffbeta[1]
+{{
+\dfrac{\partial^{2 \beta} #1}{\partial |x|^{2 \beta}}
+}}
+
+\newcommand \diffbetaL[1]
+{{
+_{a}\mathrm{D}_{x}^{2 \beta} #1
+}}
+
+\newcommand \diffbetaR[1]
+{{
+_{x}\mathrm{D}_{b}^{2 \beta} #1
+}}
+
+% =========+=========+=========+=========+=========+=========+========= diff of y
+\newcommand \difgamma[1]
+{{
+\dfrac{\partial^{\gamma} #1}{\partial |y|^{\gamma}}
+}}
+
+\newcommand \difgammaL[1]
+{{
+_{c}\mathrm{D}_{y}^{\gamma} #1
+}}
+
+\newcommand \difgammaR[1]
+{{
+_{y}\mathrm{D}_{d}^{\gamma} #1
+}}
+
+\newcommand \diffgamma[1]
+{{
+\dfrac{\partial^{2 \gamma} #1}{\partial |y|^{2 \gamma}}
+}}
+
+\newcommand \diffgammaL[1]
+{{
+_{c}\mathrm{D}_{y}^{2 \gamma} #1
+}}
+
+\newcommand \diffgammaR[1]
+{{
+_{y}\mathrm{D}_{d}^{2 \gamma} #1
+}}
+
+
+% =========+=========+=========+=========+=========+=========+========= Symbols
+
+\newcommand{\Hypre}{$\ \rm{HYPRE}$}
+
+\newcommand{\XBraid}{$\ \rm{XBraid}$}
+
+\newcommand{\Matlab}{$\ \rm{MATLAB}$}
+
+\newcommand{\Mathematica}{$\ \rm{Mathematica}$}
+
+\newcommand{\Cp}{$\ \rm{C}$}
+%{$\rm{C}$}
+%{\lr{\texttt{\textup{C}}}}
+
+\newcommand{\Cpp}{$\ \rm{C\texttt{++}}$}
+%{$\rm{C\texttt{++}}$}
+%{\lr{\texttt{\textup{C++}}}}
+
+% =========+=========+=========+=========+=========+=========+========= step
+\newcommand{\qtq}{\quad \to \quad}
+\newcommand{\stq}{\ \to \quad}
+\newcommand{\sts}{\ \to \ }
+\newcommand{\qqq}{\quad , \quad}
+\newcommand{\sqq}{\ , \quad}
+\newcommand{\sqs}{\ , \ }
+\newcommand{\sqss}{\ , \ \ }
+\newcommand{\sqn}{\ , }
+\newcommand{\sdn}{\ . }
+\newcommand{\nqn}{ , }
+\newcommand{\ndn}{ . }
+\newcommand{\dds}{: \ }
+\newcommand{\ddq}{: \quad }

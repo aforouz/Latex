@@ -1,0 +1,49 @@
+\chapter*{پیوست‌ 1}
+\thispagestyle{empty}\fancyhead[LE]{\nouppercase\thepage\ \hfill\ پیوست ۱}
+\fancyhead[LO]{\nouppercase پیوست ۱ \ \hfill\ \thepage}
+\addcontentsline{toc}{chapter}{پیوست‌ 1}
+در این بخش الگوریتم‌های مورد نیاز در فصل ۳ رساله که به وسیله‌ی نرم‌ افزار GAP نوشته شده‌اند ارائه شده است. 
+خروجی الگوریتم  Prog-I علاوه بر آن زیرمجموعه‌های سه عضوای از $\mathbb{Z}_n $ که  گراف کیلی جمعی حاصل همبند و صحیح است، 
+قدرمطلق مقادیر ویژه‌ی گراف مذکور  نیز است. 
+ 
+\hspace{1cm}
+\begin{latin}
+\noindent \bf Prog-I:
+\end{latin}
+$------------------------------------------$
+\begin{code}
+Main:=function(n)
+local i,j,k,r,t,a,c,w,A,B,G,T,D;
+G:=CyclicGroup(IsPermGroup,n);
+a:=MinimalGeneratingSet(CyclicGroup(IsPermGroup,n))[1];
+T:=Elements(List(G,x->x^2));     B:=Set([]);
+for i in [1..n-1] do
+  for j in [i+1..n-1] do
+    for k in [j+1..n-1] do
+      w:=0; A:=[]; D:=[];
+      for r in [0..n-1] do
+        c:=E(n)^(i*r)+E(n)^(j*r)+E(n)^(k*r);
+        t:=ImaginaryPart(c)^2+RealPart(c)^2;
+        if IsInt(t)  and IsInt(Sqrt(t)) then   w:=w+1;
+        fi;
+      od;
+      if w=n and Intersection([a^i,a^j,a^k],T)=[]
+         and Group(a^i,a^j,a^k)=G
+         and Size(Group(a^(i-j),a^(i-k),a^(j-k)))>=Size(G)/2
+      then
+         Add(D,i); Add(D,j); Add(D,k); Add(A,D);
+         for r in [0..n-1] do
+           c:=E(n)^(i*r)+E(n)^(j*r)+E(n)^(k*r);
+           t:=ImaginaryPart(c)^2+RealPart(c)^2;
+           if IsInt(t) then  t:=Sqrt(t);
+           fi;
+           Add(A,t);
+         od;
+         Add(B,A);
+      fi;
+    od;
+  od;
+od;
+return B;
+end;
+\end{code}

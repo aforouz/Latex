@@ -1,0 +1,130 @@
+\documentclass[12pt]{report}
+\renewcommand{\baselinestretch}{1.45}
+\usepackage{amsthm,amssymb,amsmath,mathrsfs,graphicx,xcolor,float,url}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tkz-tab,tikz,fancyhdr}
+\usetikzlibrary{decorations.markings}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=5pt]
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usetikzlibrary{snakes}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{etoolbox}
+\usepackage{caption}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{tabularx}
+\usepackage{moreverb} 
+\usepackage{array}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% پکیج برای الگوریتم و کد
+\usepackage{algorithm}
+\usepackage{dsfont}
+%\usepackage{arevmath}     % For math symbols
+\usepackage[noend]{algpseudocode}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% جهت خلاصه‌سازی شماره‌های منابع
+\usepackage[numbers,sort&compress]{natbib}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+\usepackage{ifthen}
+\usepackage{calc}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+\usepackage[pagebackref=false,colorlinks,linkcolor=blue,citecolor=magenta]{hyperref}
+
+% چنانچه قصد پرینت گرفتن نوشته خود را دارید، خط بالا را غیرفعال و  از دستور زیر استفاده کنید چون در صورت استفاده از دستور زیر‌‌،
+% لینک‌ها به رنگ سیاه ظاهر خواهند شد و برای پرینت گرفتن، مناسب‌تر است
+%\usepackage[pagebackref=false,colorlinks=black,linkcolor=black,citecolor=black]{hyperref}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+\usepackage[top=3cm, bottom=3cm, left=2.5cm, right=3cm]{geometry}
+% با فعال کردن دستور زیر، می‌توانید قالب دور صفحه را مشاهده کرده و از خروج نوشته‌ها جلوگیری کنید
+%\usepackage[showframe=true,top=3cm, bottom=3cm, left=2.5cm, right=3cm]{geometry}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+\usepackage{tocbibind}
+\usepackage{multicol}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% فراخوانی بسته زی‌پرشین و دستورات مربوط به نوع فونت‌ها
+\usepackage[extrafootnotefeatures]{xepersian}
+\threecolumnfootnotes
+\usepackage{./styles/chapterhead}
+ %دستوری برای تغییر نام کلمه «کتاب‌نامه» به «منابع»
+\renewcommand{\bibname}{کتاب‌نامه}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+\settextfont[Scale=1.1]{Yas}
+%\setromantextfont[Scale=1.1]{Times New Roman}
+\setlatintextfont[Scale=1.1]{Times New Roman}
+%  برای فارسی کردن اعداد در فرمول‌ها  
+%\setdigitfont[Scale=1.1]{Yas}
+\setdigitfont[Scale=1.1]{Parsi Digits}
+\defpersianfont\percentfont[Scale=1.1]{Zar}
+% فونت پارسی دیجیت علامت درصد ندارد. برای همین به‌طور دستی در قسمت commands دستوری برای آن ساخته شده است. 
+% اگر لاتک شما درست باشد، تنها خطای مربوط به کد از پارسی دیجیت را دریافت خواهید کرد که مربوط به همین علامت درصد هست.
+% تعریف قلم‌های فارسی و انگلیسی برای استفاده در بعضی از قسمت‌های متن
+\defpersianfont\titr[Scale=1]{XB Titre}
+\defpersianfont\nastaliq[Scale=.9]{IranNastaliq}
+\deflatinfont\tnr[Scale=.9]{Times New Roman}
+\defpersianfont\lotoos[Scale=1]{XB Roya}
+\defpersianfont\elmi[Scale=1]{XB Roya} 
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+\def\theoremname{قضیه}
+\def\definitionname{تعریف}
+\def\corollaryname{نتیجه}
+\def\examplename{مثال}
+\def\lemmaname{لم}
+\def\notename{تذکر}
+\def\propname{گزاره}
+\def\remname{تبصره}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+\newtheorem{theorem}{\theoremname}[chapter]
+\newtheorem{corollary}[theorem]{ \corollaryname}
+\newtheorem{definition}[theorem]{\definitionname }
+\newtheorem{example}[theorem]{\examplename   }
+\newtheorem{lemma}[theorem]{\lemmaname   }
+\newtheorem{note}[theorem]{\notename   }
+\newtheorem{proposition}[theorem]{\propname   }
+\newtheorem{remark}[theorem]{\remname   }
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% در این بخش می‌توان نحوه ترتیب شماره‌گذاری‌ها را تغییر داد.
+
+%\renewcommand{\thetheorem}{\arabic{theorem}.\arabic{section}.\arabic{chapter}}
+%\renewcommand{\thefigure}{\arabic{figure}-\arabic{chapter}}
+%\renewcommand{\theequation}{\arabic{equation}}
+
+\renewcommand{\thetheorem}{\arabic{theorem}-\arabic{chapter}}
+%\renewcommand{\thefigure}{\arabic{figure}-\arabic{chapter}}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\theequation}{\beginL\arabic{equation}\endL}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+%%%% انتهای اثبات قضایا و لمها
+\newcommand{\eqd}{\ \  \blacksquare\hfill}
+
+\setlength{\unitlength}{1cm}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+%%%%%%%%%%%%%%  تعریف دستوری که سر صفحه‌ها را در ابتدای  قسمتهایی که فصل نیستند، مثل ضمیمه، واژه‌نامه، ... 
+\newcommand{\headerb}[1]{\markright{ #1 \ \  \hrulefill\ \  }}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% تعریف دستوری برای قسمت فهرست کلمات اختصاری
+%\newcommand{\symbb}[3]{ \makebox[14cm] {\makebox[2cm][c]{\hfill}\makebox[2.5cm][r]{$\displaystyle #1$} \ \  \makebox[7.5cm][r]{#2} \ \ \makebox[3cm][l]{#3}}\newline}
+\newcommand{\symbb}[3]{ \makebox[15cm] {\makebox[1cm][c]{\hfill}\makebox[2cm][r]{$\displaystyle #1$} \ \  \makebox[10cm][r]{#2} \ \ \makebox[2cm][l]{#3}}\newline}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% تعریف دستوری برای قسمت فهرست نمادها
+\newcommand{\symb}[3]{ \makebox[12.5cm] {\makebox[2cm][c]{\hfill}\makebox[4.1cm][r]{$\displaystyle #1$} \ \  \makebox[6.4cm][r]{#2} \ \ \makebox[2cm][l]{#3}}\newline}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% دستوری برای تعریف واژه‌نامه انگلیسی به فارسی
+\newcommand{\englishTOfarsi}[2]{#2\dotfill   \lr{#1}\newline} 
+% دستوری برای تعریف واژه‌نامه فارسی به انگلیسی 
+\newcommand{\farsiTOenglish}[2]{ #1\dotfill \lr{#2}\newline}
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+%                    \thispagestyle{empty}% original style: plain
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
+
+
+

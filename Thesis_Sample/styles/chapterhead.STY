@@ -1,0 +1,501 @@
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+%بسم الله الرحمن الرحيم
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\@makechapterhead#1{
+  \vspace*{27\p@}
+  {\parindent \z@ \if@RTL\raggedleft\else\raggedright\fi \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \hfill\huge\bf \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 20\p@
+    \fi
+    \interlinepenalty\@M
+    \hfill\Huge \bf #1\par\nobreak
+    \vskip 4.5cm
+  }
+}
+\def\@makeschapterhead#1{
+  \vspace*{50\p@}
+  {\parindent \z@ \if@RTL\raggedleft\else\raggedright\fi
+    \normalfont
+    \interlinepenalty\@M
+    \centerline{\Huge \bf  #1}\par\nobreak
+    \vskip 40\p@
+  }
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% دستورهای مربوط به نمایش عنوان، نام، مکان و زمان دفاع و ...
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\besmella#1{\gdef\@besmella{#1}}
+\def\Title#1{\gdef\@Title{#1}}
+\def\name#1{\gdef\@name{#1}}
+\def\timeofmeeting#1{\gdef\@timeofmeeting{#1}}
+\def\dateofmeeting#1{\gdef\@dateofmeeting{#1}}
+\def\placeofmeeting#1{\gdef\@placeofmeeting{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\supervisorB#1{\gdef\@supervisorB{#1}}
+\def\advisor#1{\gdef\@advisor{#1}}
+\def\refereeA#1{\gdef\@refereeA{#1}}
+\def\refereeAUniversity#1{\gdef\@refereeAUniversity{#1}}
+\def\refereeB#1{\gdef\@refereeB{#1}}
+\def\refereeBUniversity#1{\gdef\@refereeBUniversity{#1}}
+\def\refereeC#1{\gdef\@refereeC{#1}}
+\def\refereeCUniversity#1{\gdef\@refereeCUniversity{#1}}
+\def\coordinator#1{\gdef\@coordinator{#1}}
+\def\talkabstract#1{\gdef\@talkabstract{#1}}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\university#1{\gdef\@university{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\gender#1{\gdef\@gender{#1}}
+\def\yearr#1{\gdef\@yearr{#1}}
+\def\Thanks#1{\gdef\@Thanks{#1}}
+\def\taghdim#1{\gdef\@taghdim{#1}}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\Euniversity#1{\gdef\@Euniversity{#1}}
+\def\Edepartment#1{\gdef\@Edepartment{#1}}
+\def\Etitle#1{\gdef\@Etitle{#1}}
+\def\degree#1{\gdef\@degree{#1}}
+\def\Sdegree#1{\gdef\@Sdegree{#1}}
+\def\Adegree#1{\gdef\@Adegree{#1}}
+\def\Edegree#1{\gdef\@Edegree{#1}}
+\def\Ndegree#1{\gdef\@Ndegree{#1}}
+\def\Ename#1{\gdef\@Ename{#1}}
+\def\Esupervisor#1{\gdef\@Esupervisor{#1}}
+\def\EsupervisorB#1{\gdef\@EsupervisorB{#1}}
+\def\Eadvisor#1{\gdef\@Eadvisor{#1}}
+\def\ErefereeA#1{\gdef\@ErefereeA{#1}}
+\def\ErefereeB#1{\gdef\@ErefereeB{#1}}
+\def\ErefereeC#1{\gdef\@ErefereeC{#1}}
+\def\Ecoordinator#1{\gdef\@Ecoordinator{#1}}
+\def\Edate#1{\gdef\@Edate{#1}}
+\def\EdateB#1{\gdef\@EdateB{#1}}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\supervisordegree#1{\gdef\@supervisordegree{#1}}
+\def\supervisorBdegree#1{\gdef\@supervisorBdegree{#1}}
+\def\advisordegree#1{\gdef\@advisordegree{#1}}
+\def\refereeAdegree#1{\gdef\@refereeAdegree{#1}}
+\def\refereeBdegree#1{\gdef\@refereeBdegree{#1}}
+\def\refereeCdegree#1{\gdef\@refereeCdegree{#1}}
+\def\coordinatordegree#1{\gdef\@coordinatordegree{#1}}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% تنظیم مقطع
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\SetDegree#1{
+\ifthenelse{\equal{#1}{2}}{
+\degree{کارشناسی ارشد}
+\Edegree{Master of Science}
+\Adegree{M. Sc.}
+\Ndegree{پايان‌نامه}
+}{
+\ifthenelse{\equal{#1}{3}}{
+\degree{دکتری}
+\Edegree{Doctor of Philosophy}
+\Adegree{Ph. D.}
+\Ndegree{رساله}
+}{
+\degree{کارشناسی}
+\Edegree{Bachelor of Science}
+\Adegree{B. Sc.}
+\Ndegree{پروژه}
+}
+}
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+%  تولید صفحه دفاعیه 
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\defpage{
+\begin{titlepage}
+\vskip -3cm
+\begin{center}
+\includegraphics[height=30mm]{./styles/logo}
+
+{\normalsize \titr 
+جلسه‌ دفاع از 
+\@Ndegree \ \@degree }\\
+\vskip 0.8cm
+{\Large \titr \@Title  }\\
+\vskip 0.8cm 
+{\large \titr 
+سخنران:     
+\@name }
+
+\bigskip
+زمان: 
+\@timeofmeeting
+
+\vskip 0.3cm
+ مکان: 
+\@placeofmeeting
+
+\vskip 0.3cm
+ 
+ هیئت داوران
+\end{center}
+\vskip -0.5cm
+\newcounter{xcntdef}
+\hspace*{2cm} \addtocounter{xcntdef}{1}\arabic{xcntdef}- \@supervisor
+
+\ifthenelse{\equal{\@supervisorB}{}}{}{\hspace*{2cm} \addtocounter{xcntdef}{1}\arabic{xcntdef}- \@supervisorB}
+
+\ifthenelse{\equal{\@advisor}{}}{}{\hspace*{2cm} \addtocounter{xcntdef}{1}\arabic{xcntdef}- \@advisor}
+
+\hspace*{2cm} \addtocounter{xcntdef}{1}\arabic{xcntdef}- \@refereeA   \ifthenelse{\equal{\@refereeAUniversity}{}}{}{\ \ (\@refereeAUniversity)}
+
+\hspace*{2cm} \addtocounter{xcntdef}{1}\arabic{xcntdef}- \@refereeB  \ifthenelse{\equal{\@refereeBUniversity}{}}{}{\ \ (\@refereeBUniversity)}
+
+\ifthenelse{\equal{\@refereeC}{}}{}{\hspace*{2cm} \addtocounter{xcntdef}{1}\arabic{xcntdef}- \@refereeC} \ifthenelse{\equal{\@refereeCUniversity}{}}{}{\ \ (\@refereeCUniversity)}
+
+{\bf \noindent 
+چکیده: 
+}
+\noindent \@talkabstract
+
+\end{titlepage}
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% تولید صفحه اول پایان‌نامه
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\firstpage{
+\begin{titlepage}
+\vskip  -2.6cm
+
+\begin{center}
+\includegraphics[height=30mm]{./styles/logo}
+
+\@university \\
+\@department 
+\vskip 2cm
+{\Huge \titr \@Title }
+\vskip  1.5cm
+
+\@Ndegree \ \@degree \ \@Sdegree
+
+\vspace*{.5cm}
+{\normalsize\titr \@name }
+\vskip 2.8cm
+ 
+\ifthenelse{\equal{\@supervisorB}{}}{استاد راهنما}{استادان راهنما}
+
+\vskip .25cm
+{\normalsize\titr \@supervisor }
+
+{\ifthenelse{\equal{\@supervisorB}{}}{}{\vskip .3cm \normalsize\titr   \@supervisorB} }
+\vskip .5cm
+استاد مشاور
+\vskip .25cm
+{\normalsize\titr \@advisor }
+
+\vskip 2cm
+\@yearr
+\end{center}
+
+\end{titlepage}
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% تولید صفحه حق کپی
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\copyrightpagepage{
+\begin{titlepage}
+\ \vfill
+\vspace{-12cm}
+\tikzstyle{tmpvip}=[ultra thick,rectangle,draw=black!72,rounded corners=5mm, inner xsep=1.1cm,inner ysep=0.5cm]
+\begin{center}
+\begin{tikzpicture} 
+\node[tmpvip](mainbox){
+\hspace*{-.1cm}\begin{minipage}{0.75\textwidth}\large
+\rl{\bf 
+کلیه حقوق مالکیت مادی و معنوی مربوط به اين
+\@Ndegree \
+متعلق به دانشگاه صنعتی اصفهان و پدیدآورندگان است. 
+این حقوق توسط دانشگاه صنعتی اصفهان و براساس خط مشی مالکیت فکری این دانشگاه، ارزش‌گذاری و سهم‌بندی خواهد شد.
+\\
+هر گونه بهره‌برداری از محتوا، نتايج یا اقدام برای تجاری‌سازی دستاوردهای اين 
+\@Ndegree \
+تنها با مجوز کتبی دانشگاه صنعتی اصفهان امکان‌پذیر است. 
+\hfill}
+\end{minipage}};
+\end{tikzpicture}
+\end{center}
+
+\ \vfill
+\end{titlepage}
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% تولید صفحه تصویب پایان‌نامه
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\approvalpage{
+\begin{titlepage}
+\vskip  -1.5cm
+\begin{center}
+\includegraphics[height=25mm]{./styles/logo}
+
+\@university \\
+\@department\\
+
+{\large 
+\vskip  2cm
+\@Ndegree \ \@degree \ \@Sdegree \ \@gender \ \@name
+  
+\bigskip
+تحت عنوان 
+}
+
+\bigskip
+\bigskip
+{\huge \titr \@Title }
+\end{center}
+{\normalsize  
+\vskip  1.5cm
+{
+در تاریخ   
+\ \@dateofmeeting \
+ توسط کمیته تخصصی زیر مورد بررسی و تصویب نهایی قرار گرفت.
+}\bigskip \bigskip \newcounter{cntdef}
+
+\ifthenelse{\equal{\@Edegree}{Master of Science}}{
+\hspace*{.2cm} \addtocounter{cntdef}{1}\arabic{cntdef}- استاد راهنمای \@Ndegree \ \hspace*{4cm} \@supervisor 
+
+\ifthenelse{\equal{\@supervisorB}{}}{}{\bigskip\hspace*{.2cm} \addtocounter{cntdef}{1}\arabic{cntdef}- استاد راهنمای \@Ndegree \ \hspace*{4cm}\@supervisorB}
+
+\ifthenelse{\equal{\@advisor}{}}{}{\bigskip\hspace*{.2cm} \addtocounter{cntdef}{1}\arabic{cntdef}- اســـتاد مشاور \@Ndegree \ \hspace*{4cm}\@advisor}
+}{
+\hspace*{.2cm} \addtocounter{cntdef}{1}\arabic{cntdef}- اســــــتاد راهنمای \@Ndegree \ \hspace*{3.9cm} \@supervisor 
+
+\ifthenelse{\equal{\@supervisorB}{}}{}{\bigskip\hspace*{.2cm} \addtocounter{cntdef}{1}\arabic{cntdef}- اســــــتاد راهنمای \@Ndegree \ \hspace*{3.9cm}\@supervisorB}
+
+\ifthenelse{\equal{\@advisor}{}}{}{\bigskip\hspace*{.2cm} \addtocounter{cntdef}{1}\arabic{cntdef}- اســـــــــتاد مشاور \@Ndegree \ \hspace*{4cm}\@advisor}
+}
+
+\bigskip
+\hspace*{.2cm} \addtocounter{cntdef}{1}\arabic{cntdef}- اســــــــــــــــــتاد داور ۱ \hspace*{4cm}\@refereeA   
+
+\bigskip
+\hspace*{.2cm} \addtocounter{cntdef}{1}\arabic{cntdef}- اســــــــــــــــــتاد داور ۲  \hspace*{4cm}\@refereeB   
+
+\ifthenelse{\equal{\@refereeC}{}}{}{\bigskip\hspace*{.2cm} \addtocounter{cntdef}{1}\arabic{cntdef}- اســـــــــــــــــتاد داور ۳ \hspace*{4cm}\@refereeC   }
+
+\bigskip
+\bigskip
+\hspace*{.2cm}
+سرپرست تحصیلات تکمیلی دانشکده  
+\hspace*{2.65cm} 
+\@coordinator
+}
+\end{titlepage}
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% صفحه‌ تشکر
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\thatkspage{
+\begin{titlepage}
+\vskip 1cm
+\begin{center}
+{\Large \nastaliq \@Thanks}
+\end{center}
+\end{titlepage}
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% صفحه تقدیم 
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\taghdimpage{
+\begin{titlepage}
+\vskip 1cm
+\begin{center}
+{\Huge \nastaliq \@taghdim }
+\end{center}
+\end{titlepage}
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% صفحه صورتجلسه دفاعیه انگلیسی
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\Eapprovalpage{\begin{titlepage}
+\latin
+
+\vskip   -2.5cm
+\begin{center}
+\includegraphics[height=30mm]{./styles/Elogo}
+
+\vskip   .3cm
+\@Euniversity
+\vskip 1mm
+
+\@Edepartment\\
+
+\vskip   1cm
+{\Large \bfseries \@Etitle }\\
+\vskip  1cm 
+A Thesis  \\
+  \vskip 1mm
+Submitted in Partial Fulfillment of the Requirements\\ \vskip 2mm
+for the \@Edegree  \ (\@Adegree)\\
+
+\vskip   10mm
+{\normalsize 
+By\\ \vskip 2mm
+\@Ename 
+}
+ \end{center}
+\vskip  1.2cm
+
+Evaluated and approved by the thesis committee, on \@Edate
+
+\vskip  .8cm
+ 
+ \setcounter{cntdef}{0}
+\addtocounter{cntdef}{1}\arabic{cntdef}- \@Esupervisor,  \@supervisordegree  \ (Supervisor)  
+\vskip  .5cm
+  
+\ifthenelse{\equal{\@EsupervisorB}{}}{}{\addtocounter{cntdef}{1}\arabic{cntdef}- \@EsupervisorB,  \@supervisorBdegree  
+                                                       \ (Supervisor) \vskip  .5cm}
+
+\ifthenelse{\equal{\@advisor}{}}{}{\addtocounter{cntdef}{1}\arabic{cntdef}- \@Eadvisor,  \@advisordegree  \ (Advisor) }
+\vskip  .4cm
+    
+\addtocounter{cntdef}{1}\arabic{cntdef}- \@ErefereeA,  \@refereeAdegree \  (Examiner)  
+\vskip  .4cm
+  
+  \addtocounter{cntdef}{1}\arabic{cntdef}- \@ErefereeB,  \@refereeBdegree \ (Examiner)   
+ \vskip  .4cm
+ 
+\ifthenelse{\equal{\@refereeC}{}}{}{\addtocounter{cntdef}{1}\arabic{cntdef}- \@ErefereeC,  \@refereeCdegree \  (Examiner)}
+
+   
+\vskip  .5cm
+  
+  \@Ecoordinator, \@coordinatordegree \ (Department graduate coordinator)
+
+\end{titlepage}
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% صفحه عنوان انگلیسی
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\lastpage{
+\begin{titlepage}
+\latin
+\vspace*{-2cm}
+\begin{center}
+
+\includegraphics[height=30mm]{./styles/Elogo}
+
+\@Euniversity
+\vskip 2mm
+\@Edepartment
+\vspace*{1.8cm}
+
+Thesis Submitted for the Award of \ \@Edegree \ (\@Adegree)  \  in Mathematics\\
+
+\vspace*{1.7cm}
+{\bf \large \@Etitle }
+ 
+\vspace*{2cm}
+
+\@Ename
+
+\vspace*{3cm}
+ 
+Supervisor: \@Esupervisor
+
+\ifthenelse{\equal{\@EsupervisorB}{}}{}{\medskip Supervisor: \@EsupervisorB} 
+
+\vspace*{1cm}
+
+\ifthenelse{\equal{\@advisor}{}}{}{Advisor: \@Eadvisor} 
+
+
+\vspace*{2.5cm}
+\@EdateB
+
+
+\end{center}
+\end{titlepage}
+}
+
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% صفحه بسم الله انگلیسی
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+% ==========+==========#==========+==========#==========+==========#==========+==========#==========+==========
+
+\def\besmellapage{
+\begin{titlepage}
+\vskip 5cm
+\begin{center}
+\includegraphics[width=135mm]{./styles/besmellah/\@besmella}
+\end{center}
+\end{titlepage}
+}
+
