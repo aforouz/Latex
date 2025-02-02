@@ -1,0 +1,7 @@
+*.toc
+*.out
+*.pdf
+*.synctex
+*.ptd
+*.aux
+*.log
