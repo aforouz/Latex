@@ -208,17 +208,21 @@
 \vspace*{.5cm}
 {\normalsize\titr \@name }
 \vskip 2.8cm
+
+\ifthenelse{\equal{\@advisor}{}}{\vskip 1cm}{}
  
 \ifthenelse{\equal{\@supervisorB}{}}{استاد راهنما}{استادان راهنما}
 
 \vskip .25cm
 {\normalsize\titr \@supervisor }
 
-{\ifthenelse{\equal{\@supervisorB}{}}{}{\vskip .3cm \normalsize\titr   \@supervisorB} }
+{\ifthenelse{\equal{\@supervisorB}{}}{\vskip .5cm}{\vskip .3cm \normalsize\titr   \@supervisorB} }
 \vskip .5cm
-استاد مشاور
-\vskip .25cm
-{\normalsize\titr \@advisor }
+
+\ifthenelse{\equal{\@advisor}{}}{}{استاد مشاور}
+
+{\ifthenelse{\equal{\@advisor}{}}{\vskip 0.5cm}{\vskip .25cm \normalsize\titr    \@advisor} }
+
 
 \vskip 2cm
 \@yearr
@@ -324,13 +328,8 @@
 \bigskip
 \bigskip
 \hspace*{.2cm}
-\ifthenelse{\equal{\@Edegree}{Bachelor of Science}}{
-معاون آموزشـــــی دانشکده
-\hspace*{3.89cm} 
-}{
-سرپرست تحصیلات تکمیلی دانشکده
-\hspace*{2.45cm} 
-}
+سرپرست تحصیلات تکمیلی دانشکده  
+\hspace*{2.65cm} 
 \@coordinator
 }
 \end{titlepage}
@@ -419,7 +418,7 @@ Evaluated and approved by the thesis committee, on \@Edate
 \ifthenelse{\equal{\@EsupervisorB}{}}{}{\addtocounter{cntdef}{1}\arabic{cntdef}- \@EsupervisorB,  \@supervisorBdegree  
                                                        \ (Supervisor) \vskip  .5cm}
 
-\ifthenelse{\equal{\@advisor}{}}{}{\addtocounter{cntdef}{1}\arabic{cntdef}- \@Eadvisor,  \@advisordegree  \ (Advisor) }
+\ifthenelse{\equal{\@Eadvisor}{}}{}{\addtocounter{cntdef}{1}\arabic{cntdef}- \@Eadvisor,  \@advisordegree  \ (Advisor) }
 \vskip  .4cm
     
 \addtocounter{cntdef}{1}\arabic{cntdef}- \@ErefereeA,  \@refereeAdegree \  (Examiner)  
@@ -469,14 +468,16 @@ Thesis Submitted for the Award of \ \@Edegree \ (\@Adegree)  \  in Mathematics\\
 \@Ename
 
 \vspace*{3cm}
+
+\ifthenelse{\equal{\@Eadvisor}{}}{\vskip 0.5cm}{} 
  
 Supervisor: \@Esupervisor
 
-\ifthenelse{\equal{\@EsupervisorB}{}}{}{\medskip Supervisor: \@EsupervisorB} 
+\ifthenelse{\equal{\@EsupervisorB}{}}{\vskip 0.5cm}{\medskip Supervisor: \@EsupervisorB} 
 
 \vspace*{1cm}
 
-\ifthenelse{\equal{\@advisor}{}}{}{Advisor: \@Eadvisor} 
+\ifthenelse{\equal{\@Eadvisor}{}}{\vskip 1cm}{Advisor: \@Eadvisor} 
 
 
 \vspace*{2.5cm}
