@@ -1,0 +1,226 @@
+% Chapter 2
+% Algorithms and Numerical Methods
+
+% ==================== Algorithms & Numerical Methods ====================
+
+\section{Algorithms \& Numerical Methods}
+
+% ====================Intro=================
+
+\begin{frame}
+
+\frametitle{Algorithms \& Numerical Methods}
+1.Algorithms \& Numerical Methods for computing Matrix Square Root.
+\newline
+\newline
+2.Develop a general purpose algorithm for computing $f(A)$
+via the Schur decomposition.
+
+\end{frame}
+
+% =============Def_Matrix_Square_Root=======================
+\subsection{Matrix Square Root}
+\begin{frame}
+
+\frametitle{Definition of Matrix Square Root}
+Theorem. (principal square root). Let $A \in C^{n \times n}$ have no eigenvalues on $R{-}$.\newline
+There is a unique square root $X$ of $A$ all of its eigenvalues lie in the open right
+half-plane,\newline and it is a primary matrix function of $A$. We refer to $X$ as the principal
+square root of $A$,\newline and write $X = A^{1/2}$.\newline
+\newline
+\newline
+We will almost exclusively be concerned with the principal square root.
+\end{frame}
+
+% ====================listed_methods====================
+
+
+\begin{frame}
+
+\frametitle{Numerical Methods For computing Matrix Square Root}
+1.Schur Method (Bjorck and Hammarling [1983] ).\newline
+2.Newton's Method \& It's Variants.\newline
+3.Using Square Root Function with other Decompositions
+
+\end{frame}
+
+% ====================Schur_Decomposition===================
+
+\subsection{Schur Method}
+\begin{frame}
+
+\frametitle{Schur Decomposition}
+\[
+A = QTQ^{H}, \quad A \in C^{n \times n} ,
+\]
+$Q \& Q^{H} $Orthogonal, T Upper Triangular.\newline \newline
+Note that the Schur Decomposition is not Unique.\newline \newline
+The Schur Decomposition can be computed numerically using the QR-Algorithm.
+\end{frame}
+
+% ====================QR-Algorithm=================
+\subsection{QR Algorithm}
+\begin{frame}
+\frametitle{QR Algorithm (J.Francis [1961]).}
+This Algorithm is used to find eigenvalues of a matrix using the QR-Decomposition
+\[
+A_0 =Q_0R_0, \quad A_1 = R_0Q_0, \quad A_1 = Q_1R_1, \quad A_2 = R_1Q_1 \dots
+\]
+e.g.
+\[
+   A=  \begin{pmatrix}
+        2 & 1 \\
+        1 & 2
+    \end{pmatrix}, \quad 
+    Q = \begin{pmatrix}
+        \frac{2}{\sqrt{5}} & \frac{-1}{\sqrt{5}} \\
+        \frac{3} {2} & \frac{2}{\sqrt{5}}
+    \end{pmatrix}, \quad
+    R = \begin{pmatrix}
+        \sqrt{5} & \frac{4}{\sqrt{5}} \\
+        0 & \frac{3}{\sqrt{5}}
+    \end{pmatrix},
+\]
+
+\[
+A_1 = RQ = 
+\begin{pmatrix}
+    2.8 & 0.6 \\
+    0.6 & 1.2 \\
+\end{pmatrix}
+\]
+The eigenvalues of the matrix are on the main diagonal of $A$.\newline
+$\lambda = 1,3.$
+
+
+
+\end{frame}
+
+% ====================Computing schur decop via QR Algorithm=======
+
+\begin{frame}
+
+\frametitle{Computing Schur Decomposition using QR-Algorithm.}
+
+\[
+U_k = Q_0 Q_1 \dots Q_k .
+\]
+
+$as \: A_k \rightarrow T: \quad U^H _K A U_k = A_k \quad \Longrightarrow  \quad A = UTU^H. $\newline \newline
+
+Note that a diagonal matrix is an upper triangular.\newline consequently:
+
+\[
+    A=  \begin{pmatrix}
+        2 & 1 \\
+        1 & 2
+    \end{pmatrix},
+    T=  \begin{pmatrix}
+        3 & 0 \\
+        0 & 1
+    \end{pmatrix},
+    U = \begin{pmatrix}
+        \frac {1} {\sqrt {2}} & \frac {-1} {\sqrt {2}} \\
+        \frac {1} {\sqrt {2}} & \frac {1} {\sqrt {2}}
+    \end{pmatrix}
+\]
+Off-diagonal enteries of the matrix $A$ converge to $0$.\newline
+\end{frame}
+
+% ==================== Schur Method ====================
+
+\begin{frame}
+
+\frametitle{Schur Method\newline (Bjorck and Hammarling [1983] )}
+$A \in C^{n \times n}$ is non-singular.\newline
+$A = QTQ^H \quad \Longrightarrow \quad f(A) = Qf(T)Q^H ,$\newline \newline
+$U^2 = T \quad \Longrightarrow \quad U =? $ ($U$ is upper triangular.)\newline
+For diagonal enteries: $(i,i)$
+\[
+ u_{ii} ^2 = t_{ii},
+\]
+superdiagonal enteries: $(j>i)$
+\[
+t_{ii} =\sum_{k=i}^{k=j}u_{ik}u_{kj} \Longrightarrow ,(u_{ii}+u_{jj})u_{ij} = t_{ij} - \sum_{k =i+1}^{j-1}u_{ik}u_{kj}.
+\]
+First, diagonal enteries are computed then off-diagonal enteries, a super diagonal at a time.The process cannot break down,because $u_{ii}+u_{jj}=0$ is not possible.(why?)
+\end{frame}
+
+% ==================== Schur Method ====================
+
+\begin{frame}
+
+\frametitle{Schur Method\newline (Bjorck and Hammarling [1983] )}
+\[
+X^2 =A , \quad A = QTQ^H ,\quad U^2 =T
+\]
+
+\[
+\Longrightarrow \quad X =QUQ^H
+\]
+Summary:\newline
+1.Schur Decomposition\newline
+2.Computing $u_{ij}$'s.\newline
+3.$X = QUQ^H $.\newline \newline
+Cost: $\frac {28} {3}n^3 $ flops in total.
+
+\end{frame}
+
+% ====================Newton Method========================
+
+\begin{frame}
+\subsection{Newton's Method}
+\frametitle{Newton's Method}
+$X^2-A =0 , \quad X = ?$\newline
+Let $X=Y+E ,$\quad $E$ stands for error part.(to be determined)\newline
+$A = (Y+E)^2 = Y^2+YE+EY+E^2 $\newline
+\begin{align*}
+&
+X_0 \ given, \\
+&
+solve(for \ E) \; X_kE_k+E_kX_k = A-X^2 _k \\
+& 
+X_{k+1}= X_k + E_k\\
+\end{align*}
+Lemma. Suppose that in the Newton iteration, $X_0$ commutes with $A$\newline and
+all the iterates are well-defined. Then, for all $k$,\newline
+$X_k$ commutes with $A$ and $X_{k+1} =\frac {1} {2}(X_k + X_k ^{-1}A)$.
+\end{frame}
+
+% ==================== Newton Method_2====================
+
+\begin{frame}
+
+\frametitle{Newton's Method}
+The most common choice for $X_0$ is $A$.(or $X_0 = I$ wich generates the same $X_1$ )\newline \newline
+The Method is stable if : (Laasonen [1958] ,  Higham [1986]) \[\psi_N := max_{i,j} \frac {1} {2} | 1- \lambda _i ^{\frac {1} {2}} \lambda _j ^{\frac {-1} {2}} | < 1 \]\newline
+Many variants of this method exist.\newline \newline
+The quadratic convergence of the Newton iteration is shown by Laasonen [1958] \newline
+under the assumption that $A$ has real, positive eigenvalues.
+\end{frame}
+
+% ====================Comparison=========================
+
+\begin{frame}
+    \frametitle{Comparison}
+    \begin{table}[]
+        \begin{tabular}{ll}
+            Iteration & Stable                           \\ \hline
+            Newton    & \multicolumn{1}{|l}{(condition)} \\
+            DB        & \multicolumn{1}{|l}{Yes}         \\
+            CR        & \multicolumn{1}{|l}{Yes}         \\
+            In        & \multicolumn{1}{|l}{Yes}        
+        \end{tabular}
+    \end{table}
+    
+    \begin{table}[]
+        \begin{tabular}{lll}
+            Method & Iterations             & Relative Error \\ \hline
+            Schur  & \multicolumn{1}{|l}{}  & 5.3e-13        \\
+            Newton & \multicolumn{1}{|l}{8} & 5.3e-4        
+        \end{tabular}  
+        \end{table}
+        Moler Matrix :$\psi_N = 10^5 $.
+\end{frame}
+
+% ==================== Chapter 2 ====================

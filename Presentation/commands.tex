@@ -1,0 +1,72 @@
+% Commands
+
+% Comment
+\newcommand{\mycomment}[1]{}
+
+% Shape
+\newcommand{\tikzci}{\tikz[baseline=-0.5ex]\draw[black,fill=black,radius=5pt] (0,0) circle ;}%
+
+
+% Symbol
+\newcommand{\taualpha}{\tau ^{-\alpha}}
+\newcommand{\taugamma}{\frac{\tau ^{-\alpha}}{\Gamma(2-\alpha)}}
+\newcommand{\pap}{(\alpha)}
+\newcommand{\Ne}{N_{exp}}
+\newcommand{\sltau}{s_{l} \tau}
+\newcommand{\esltau}{e^{-s_{l} \tau}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\tD}{\tilde{\mathbb{D}}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\bpo}{\Big{(}}
+\newcommand{\bpc}{\Big{)}}
+
+% Operator
+\newcommand \inner[2] { \langle #1, #2 \rangle }
+\newcommand \norm[1] { \parallel #1 \parallel }
+
+\newcommand \difbeta[1]
+{{
+\dfrac{\partial^{\beta} #1}{\partial |x|^{\beta}}
+}}
+\newcommand \difbetal[1]
+{{
+_{a}D_{x}^{\beta} #1
+}}
+\newcommand \difbetar[1]
+{{
+_{x}D_{b}^{\beta} #1
+}}
+\newcommand \diffbeta[1]
+{{
+\dfrac{\partial^{2 \beta} #1}{\partial |x|^{2 \beta}}
+}}
+\newcommand \diffbetal[1]
+{{
+_{a}D_{x}^{2 \beta} #1
+}}
+\newcommand \diffbetar[1]
+{{
+_{x}D_{b}^{2 \beta} #1
+}}
+
+% Space
+\newcommand{\stq}{(\star) \quad}
+\newcommand{\sts}{(\star) \ }
+\newcommand{\srs}{\  \rightarrow \ }
+\newcommand{\qrq}{\quad \rightarrow \quad}
+\newcommand{\qcq}{\quad , \quad}
+
+% Number
+\addtobeamertemplate{navigation symbols}{}
+{%
+\usebeamerfont{footline}%
+\usebeamercolor[fg]{footline}%
+\hspace{1em}%
+\insertframenumber/\inserttotalframenumber
+}
+
+% Label
+\DeclareCaptionLabelSeparator{none}{}
+%\captionsetup{labelsep=none}

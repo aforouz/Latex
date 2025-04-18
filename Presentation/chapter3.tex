@@ -1,0 +1,128 @@
+% Chapter 3
+% Matlab & Schur Parlett
+
+% ==================== Matlab & Schur Parlett ====================
+
+\section{Matlab \& Schur-Parlett}
+
+% ====================Intro=================
+
+\begin{frame}
+
+\frametitle{Matlab \& Schur-Parlett}
+Develop a general purpose algorithm for computing $f(A)$
+via the Schur decomposition.
+\end{frame}
+
+% ===================STD_Parlett_Algorithm===========
+
+\subsection{Standard Parlett Recurrence}
+
+\begin{frame}
+\frametitle{Standard Parlett Recurrence(1974)}
+$T$ is Upper Triangular, $F$ is $f(t)$ ,and $F$ commutes with $T$:\newline
+$FT =TF$ can be solved for off-diagonal of $F$. $(j>i)$
+\[
+\sum_{k = i} ^{j} t_{ik}f_{kj} = \sum_{k=i} ^{j} f_{ik} t_{kj},
+\]
+\[
+f_{ij}(t_{ii} - t_{jj}) = t_{ij}(f_{ii} - f_{jj})+ \sum _{k = i+1} ^{j-1}(f_{ik}t_{kj}-t_{ik}f_{kj})
+\]
+and if $t_{ii} \neq t_{jj} $: (breaks down if $t_{ii} \approx t_{jj} $)
+\[
+f_{ij} = t_{ij} \frac {f_{ii} - f_{jj}} {t_{ii} - t_{jj}} + \sum_{k = i+1} ^{j-1} \frac{f_{ik}t_{kj} -t_{ik} f_{kj} } {t_{ii}-t_{jj}},
+\]
+cost : $2n^3/3 flops$
+
+\end{frame}
+
+% ==================block form================
+\subsection{Block Parlett Recurrence}
+
+\begin{frame}
+\frametitle{Block Parlett Recurrence [1976]}
+For an upper trig matrix $A$ : \newline
+Define the matrix blocks so that every block has distinct eigenvalues. ( group close eigen values ) e.g.
+\[
+A = \begin{pmatrix}
+    1 & 0 & 3 \\
+    0 & 1.1 & 4 \\
+    0 & 0 & 5 \\
+\end{pmatrix} ,\;
+ f(x) =e^x,
+\]
+\[
+T_{11} = \begin{pmatrix}
+    1 & 0 \\
+    0 & 1.1 \\
+\end{pmatrix} , \; 
+T_{22} =\begin{pmatrix}
+5
+\end{pmatrix} , \;
+T_{12} = \begin{pmatrix}
+    3 \\
+    4 \\
+\end{pmatrix}
+\]
+\[
+\longrightarrow \;
+A = \begin{pmatrix}
+T_{11} & T_{12} \\
+0      & T_{22} \\
+\end{pmatrix}
+\]
+
+\end{frame}
+
+% ==================block form================
+\begin{frame}
+\frametitle{Block Parlett Recurrence [1976]}
+\[
+f(T_{11}) = \begin{pmatrix}
+            e^1 & 0 \\
+            0   & e^{1.1} \\
+\end{pmatrix} , \; f(T_{22}) = \begin{pmatrix}
+    e^5\\
+\end{pmatrix}
+\]
+diagonal block are computed directly and for off-diagonal blocks:
+\[
+F_{ij}: \; T_{ii}F_{ij} - F_{ij}T_{jj} =F_{ii}T_{ij} -T_{ij}F_{jj} + \sum _{k = i+1} ^ {j-1} (F_{ik}T_{kj} - T_{ik}F_{kj}),
+\]\newline
+\[
+f(T_{12}): \; T_{11}F_{12} - F_{12}T_{22} = f(T_{11})T_{12} - T_{12}f(T_{22}),
+\]
+\[
+exp(A) = \begin{pmatrix}
+e^1 & 0 & \frac {3(e^5-e^1)} {4}& \\
+0   & e^{1.1} & \frac {4(e^5-e^{1.1})} {3.9} \\
+0 & 0 & e^5\\
+\end{pmatrix} .
+\]
+\end{frame}
+
+% ==================Fin=============
+\begin{frame}
+\frametitle{Schur-Parlett Method\newline (Davies and Higham [2003])}
+The Block Parlett requires an upper trig matrix ,so we use the Schur Decomposition.
+\newline
+This algorithm is implemented by the MATLAB function "funm" .
+\newline
+$
+A_{8 \times 8} = \begin{pmatrix}
+    1 &-1 & \dots \\
+    0 & 1 & \dots \\
+    \vdots & \vdots & 1\\
+\end{pmatrix}
+$ \;
+
+    \begin{table}[]
+        \begin{tabular}{lll}
+            Data Noise        & Standard Parlett             & Block Parlett \\ \hline
+            A                 & \multicolumn{1}{|l}{1.0}     & 5.0e-16       \\
+            A +rand(8)*1.0e-8 & \multicolumn{1}{|l}{4.6e-16} & 3.4e-15      
+        \end{tabular}
+    \end{table}
+
+Thank You :)
+\end{frame}
