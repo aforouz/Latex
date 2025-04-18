@@ -5,3 +5,6 @@
 *.ptd
 *.aux
 *.log
+*.gz
+*.snm
+*.nav
