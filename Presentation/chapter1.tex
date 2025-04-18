@@ -1,0 +1,212 @@
+% Chapter 1
+% Introductions and definitions 
+
+% ==================== Introduction ====================
+
+\section{Introduction}
+
+% ====================Motivations==================
+
+\subsection{Motivation}
+
+\begin{frame}
+
+\frametitle{Motivation}
+\[
+\frac{\mathrm{d^2} y}{\mathrm{d} t^2}+Ay= 0 ,\quad y(0) = y_0, \quad y^{'}(0) = y^{'}_0,
+\]
+$y(t) = cos(\sqrt{A}t)y_0 + (\sqrt{A})^{-1}sin(\sqrt{A}t)y^{'}_0 ,$
+\newline
+\newline
+\[
+A = \begin{pmatrix}
+    -2 & 0 & 1 \\
+     3 & 1 & -3 \\
+     2 & 1 & 1
+\end{pmatrix}
+\quad \quad 
+X^2 = A \quad X = ?
+\]  
+\newline
+\newline
+
+How "funm" and other functions in MATLAB work?
+\end{frame}
+
+% ==================== Definitions ====================
+
+\subsection{Jordan Canonical Form}
+
+% ====================JCF1=======================
+
+\begin{frame}
+
+\frametitle{Definitions \newline 1.Jordan Canonical Form}
+There are many equivalent ways of defining $f(A)$.\newline
+It is a standard result that any matrix $A \in C^{n \times n}$ can be expressed in the Jordan
+canonical form. \newline
+
+\[
+Z^{-1}AZ = J = diag(J_{1},J_{2},...,J_{p}),\newline
+\]
+
+\[
+J_{k}= \begin{pmatrix}
+    \lambda_{k} & 1 & \\
+      & \lambda_{k} &1& \\
+     &  & \lambda_{k} &1 & \\
+     & & & \lambda_{k} &1 & \\
+     &&&&...&... \\
+     &&&&&...
+\end{pmatrix} \in C^{m_{k} \times m_{k} } ,
+\]
+
+\end{frame}
+
+% ====================JCF2======================
+
+\begin{frame}
+
+\frametitle{Definitions \newline 1.Jordan Canonical Form}
+
+\[
+A = \begin{pmatrix}
+    5 & 4 & 2 & 1 \\
+    0 & 1 &-1 & -1 \\
+    -1 & -1 &3 &0  \\
+    1 &1 &-1 &2
+    \end{pmatrix},\newline 
+\]
+
+\[
+\chi(\lambda) = (\lambda -1)(\lambda -2)(\lambda -4)^{2},
+\quad \lambda = 1,\; 2,\;4 ,\;4
+\]
+
+\[
+J = P^{-1}AP, \quad J = \begin{pmatrix}
+    [1] &0&0 &0 \\
+     0& [2]&0&0 \\
+     0&0 & |4& 1| \\0&0&|0&4| \\
+    \end{pmatrix} , 
+    \]
+    $
+        J_{1} = [1] \;, J_{2} = [2] \;,J_{3} = \begin{pmatrix}
+            4&1 \\
+            0&4
+    \end{pmatrix}  
+    $
+    
+\end{frame}
+
+% =================JCF3========================
+
+\begin{frame}
+
+    \frametitle{Definitions \newline 1.Jordan Canonical Form}
+    Let $f$ be defined on
+    the spectrum of $A \in C^{n \times n}$ and let A have the Jordan canonical form then,
+    \[
+    f(A) := Zf(J)Z^{-1},
+    \]
+
+    \[
+    f(J_{k}) := \begin{bmatrix}
+        f(\lambda_{k}) & f^{'} (\lambda_{k}) & \dots & \frac{f^{m_{k-1}} (\lambda_k)} {m_{k-1}} \\ \newline
+          & f(\lambda_k)& \dots & \frac{f^{m_{k-2}} (\lambda_k)} {m_{k-2}}  \\
+          \newline
+           & & \dots & \dots \\
+           \newline
+           &&& f(\lambda_k)
+          
+    \end{bmatrix}
+    \]
+    e.g: $f(x) = x^3, \; A =I.$ \newline
+
+\end{frame}
+
+
+%===================Cauchy Integral================
+
+
+\subsection{Cauchy Integral}
+
+\begin{frame}
+
+    \frametitle{Definitions \newline 2.Cauchy Integral}
+For $A \in C ^ {n \times n} $ ,
+
+\[
+f(A):= \frac{1}{2 \pi i}\int\limits_{\Gamma}^{} f(z)(zI -A)^{-1}dz,
+\]
+where $f$ is analytic on and inside a closed contour $\Gamma$ that encloses $A(A)$.\newline  \newline
+Theorem. Jordan Canonical Form \& Cauchy Integral definitions are equal.\newline
+\newline
+Note that we do not use these definitions for Numerical Methods.
+\end{frame}
+
+
+% ===============Applications_list======================
+
+\subsection{Applications}
+
+
+\begin{frame}
+\frametitle{Applications}
+e.g.
+\begin{itemize}
+\item Numerical Linear Algebra methods (for solving equations such as Ax=b , tensor equations \& \dots)
+\item In Differential Equations(ODE \& PDE)
+\item Exponential Integrators
+\item Nonlinear Matrix Equations
+\item Algebraic Riccati equations
+\item Dynamical Systems
+\item Markov Models(Chains)
+\item Numerical Methods
+\item Programming \& \dots 
+\item MATLAB !
+\end{itemize}
+\end{frame}
+
+%==================Applications(ODE)=================
+
+
+
+\begin{frame}
+    \frametitle{Applications\newline 1.Differential Equations \dots}
+    e.g.
+\[
+    \frac{\mathrm{d} y}{\mathrm{d} t} = Ay, \quad y(0) =c,\quad y \in C^{n}, \quad A \in C^{n \times n},
+\]
+$y(t) = e^{At}c,$
+\[
+    \frac{\mathrm{d} y}{\mathrm{d} t} = Ay+f(y,t), \quad y(0) =c,\quad y \in C^{n}, \quad A \in C^{n \times n},
+\]
+$y(t) = e^{At}c+\int_{0}^{t}e^{A(t-s)}f(s,y)ds ,$
+\[
+    \frac{\mathrm{d^2} y}{\mathrm{d} t^2}+Ay= 0 ,\quad y(0) = y_0, \quad y^{'}(0) = y^{'}_0,
+\]
+$y(t) = cos(\sqrt{A}t)y_0 + (\sqrt{A})^{-1}sin(\sqrt{A}t)y^{'}_0 ,$
+\end{frame}
+
+% ================Applications(Riccati)==================
+\begin{frame}
+    \frametitle{Applications\newline 2.Riccati \& Nonlinear Equations \dots}
+    e.g.
+\[
+    XFX -A^*X -XA-G=0,
+\]
+Special Form:
+\[
+XAX =B , \quad A,B \in C^{n \times n},
+\]
+$ X =B(AB)^{-1/2},$   Provided that AB has no eigenvalues on $R^{-}$.
+
+\[
+AX^2+BX+C =0, \quad A,B,C \in C^{n \times n}.
+\]
+$X =-\frac{1}{2}B+ \frac{(B^2-4C)^{1/2}} {2}$(Conditions).
+\end{frame}
+
+
+% ==================Chapter1==================
