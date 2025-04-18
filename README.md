@@ -1,5 +1,5 @@
 # Latex
 Some useful templates for latex.
 
-## Thesis_Sample_IUT
-A thesis sample for mathematical sciences students of Isfahan university of technology (IUT).
+## Isfahan_University_of_Technology
+A thesis, a presentation, and a poster sample for mathematical sciences students of Isfahan University of Technology (IUT).
